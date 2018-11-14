@@ -62,6 +62,13 @@ Insert into TARIFA values ('03', 'C', '10', '2500', '01-01-2020')
 
 
 
+/*5. Listar todos los Destinos y cantidad de pasajes comprados durante el mes de Setiembre de este año
+para c/u de los destinos del pasajero cuyo correo es soyuruguayo@gmail.com. La lista debe estar
+ordenada por destino ascendente.*/
+
+
+
+
 
 
 /*4)Listar idpasajero, nombre, apellidos y asiento (idasiento y fila) que correspondan a pasajes
