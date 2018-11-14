@@ -66,6 +66,22 @@ Insert into TARIFA values ('03', 'C', '10', '2500', '01-01-2020')
 para c/u de los destinos del pasajero cuyo correo es soyuruguayo@gmail.com. La lista debe estar
 ordenada por destino ascendente.*/
 
+/*******************Este anda*************/
+Select Todos.nombre, Todos.idpais, count(Distinct Todos.nombre) as cant from PASAJERO p, (Select Pasaje.idPasaje, Pasaje.idpasajero, Destinos.nombre, Destinos.idpais 
+										from Pasaje, (Select Aeropuerto.nombre, Aeropuerto.idpais, Vuelo.idavion from Vuelo, Aeropuerto
+															where Aeropuerto.IdAeropuerto = Vuelo.idAeropuertoDestino
+															and Vuelo.FechaHoraSalida between '2018-09-01' and '2018-09-30') as Destinos
+									where Pasaje.idavion = Destinos.idavion) as Todos
+	where Todos.idpasajero = p.idpasajero and p.email = 'soyuruguayo@gmail.com' GROUP BY Todos.nombre, Todos.idpais
+	
+
+
+Select Todos.nombre, Todos.idpais, count(Distinct Todos.nombre) as cant from PASAJERO p, (Select Pasaje.idPasaje, Pasaje.idpasajero, Destinos.nombre, Destinos.idpais 
+								from Pasaje, (Select Aeropuerto.nombre, Aeropuerto.idpais, Vuelo.idavion from Vuelo, Aeropuerto
+													where Aeropuerto.IdAeropuerto = Vuelo.idAeropuertoDestino
+													and Vuelo.FechaHoraSalida between '2018-01-01' and '2018-12-30') as Destinos
+							where Pasaje.idavion = Destinos.idavion) as Todos
+where Todos.idpasajero = p.idpasajero and p.email = 'ALFKI@Germany.com' GROUP BY Todos.nombre, Todos.idpais
 
 
 
@@ -76,15 +92,15 @@ comprados para el destino cuyo IdVuelo es 255*/
 
 
 
-Select (PASAJERO.idpasajero, PASAJERO.nombre, PASAJERO.apaterno, PASAJERO.amaterno, 
-	Asiento.fila, Asiento.letra) from Total
-where Total = (Select * from PASAJERO, Pasaje 
-				where Exists (Select * from Pasaje, ASIENTO 
-												where Pasaje.idasiento = ASIENTO.idasiento 
-												and Pasaje.idavion = ASIENTO.idavion
-												and ASIENTO.idavion in(Select * from Vuelo where idVuelo = '255'))
 
-	/*Pasaje.idpasajero*/)
+select distinct pasajero.idpasajero, pasajero.nombre, pasajero.apaterno, pasajero.apaterno, asiento.idasiento, asiento.fila, vuelo.idvuelo
+	from pasajero, asiento, vuelo, Pasaje
+	where vuelo.idvuelo = 255 and
+	pasajero.idpasajero = pasaje.idpasajero and
+	pasaje.idavion = asiento.idavion and asiento.idavion = vuelo.idavion
+	group by pasajero.idpasajero, pasajero.nombre, pasajero.apaterno, pasajero.apaterno, asiento.idasiento, asiento.fila, vuelo.idvuelo
+
+	/*Pasaje.idpasajero*/
 
 
 /*where Tabla1 = full outer join Pasaje.idpasaje = Tabla2.idpasaje
@@ -111,11 +127,10 @@ ningún destino que parta el día de mañana.*/
 Select distinct * from Avion a, ASIENTO 
 where a.idavion = ASIENTO.idavion and
 ASIENTO.idavion in (Select count(idasiento) as cantidad, idavion from ASIENTO 
-			where asiento.idavion in(Select idavion, count(idavion) as cantAsiento from ASIENTO 
-						where clase = 'Ejecutiva' group by idavion) group by idavion)
-
-and a.idavion not in (Select idavion from Vuelo 
-					where FechaHoraLlegada = (GETDATE() + 1))
+						where asiento.idavion in(Select idavion, count(idavion) as cantAsiento from ASIENTO 
+													where clase = 'Ejecutiva' group by idavion) group by idavion)
+	and a.idavion not in (Select idavion from Vuelo 
+							where FechaHoraLlegada = (GETDATE() + 1))
 
 
 
