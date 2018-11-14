@@ -108,10 +108,17 @@ FROM (SELECT DISTINCT Country FROM Customers)*/
 ningún destino que parta el día de mañana.*/
 
 
-Select * from Avion 
-where exists (Select count(idasiento) as cantidad, idavion 
-from ASIENTO group by idavion) and
-idavion not in (Select idavion from Vuelo where FechaHoraLlegada = (GETDATE() + 1))
+Select distinct * from Avion a, ASIENTO 
+where a.idavion = ASIENTO.idavion and
+ASIENTO.idavion in (Select count(idasiento) as cantidad, idavion from ASIENTO 
+			where asiento.idavion in(Select idavion, count(idavion) as cantAsiento from ASIENTO 
+						where clase = 'Ejecutiva' group by idavion) group by idavion)
+
+and a.idavion not in (Select idavion from Vuelo 
+					where FechaHoraLlegada = (GETDATE() + 1))
+
+
+
 
 select * from pasaje order by idpasajero
 
