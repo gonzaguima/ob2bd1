@@ -129,6 +129,16 @@ select * from pasaje order by idpasajero
 
 
 /*1)Listar el o los nombres de los usuarios con la mayor cantidad de pasajes comprados a su nombre.*/
+/***************ESTE ANDA **************************/								  
+select top 1 pasajero.nombre as Nombre,
+		Count(pasaje.idpasajero) as Cantidad
+from pasajero, pasaje
+where pasajero.idpasajero = pasaje.idpasajero
+group by PASAJERO.nombre
+order by Cantidad desc								  
+								  
+/******************************************************/								  
+								  
 Select nombre from PASAJERO
 where exists(Select count(idpasajero) as cantidad, idpasajero 
 			from Pasaje group by idpasajero)
