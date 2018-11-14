@@ -93,7 +93,7 @@ Select distinct p.idpasajero, nombre, apaterno, amaterno from PASAJERO p, PAGO
 where p.idpasajero = pago.idpasajero and
 	exists(Select count(PAGO.idpasajero) as cantidad, idpasajero 
 				from PAGO group by idpasajero)
-
+				/*Falta filtro de > 5*/
 
 
 Select * from pasajero order by idpasajero
