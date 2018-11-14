@@ -89,10 +89,10 @@ pasajes pagos.*/
 
 
 
-Select nombre, apaterno, amaterno from PASAJERO 
-where idpasajero in (
-Select count(PAGO.idpasajero) as cantidad, idpasajero from PAGO 
-group by idpasajero having count(idpasajero) < 5)
+Select distinct p.idpasajero, nombre, apaterno, amaterno from PASAJERO p, PAGO 
+where p.idpasajero = pago.idpasajero and
+	exists(Select count(PAGO.idpasajero) as cantidad, idpasajero 
+				from PAGO group by idpasajero)
 
 
 
@@ -125,10 +125,11 @@ where exists(Select count(idpasajero) as cantidad, idpasajero
 			from Pasaje group by idpasajero)
 
 select nombre 
-from PASAJERO p,Pasaje pa
+from PASAJERO p, Pasaje pa
 where p.idpasajero = pa.idpasajero and
-exists(Select count(idpasajero) as cantidad, idpasajero 
-			from Pasaje group by idpasajero)
+exists(Select pa.idpasajero, MAX(cantidad) 
+		from (Select idpasajero, count(idpasajero) as cantidad  
+				from Pasaje group by idpasajero) group by idpasajero)
 
 
 /*where Tabla3 = (Select count(distinct idpasajero) as cantPasajes from Pasaje)
