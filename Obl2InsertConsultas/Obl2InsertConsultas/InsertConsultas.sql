@@ -72,8 +72,10 @@ comprados para el destino cuyo IdVuelo es 255*/
 Select (PASAJERO.idpasajero, PASAJERO.nombre, PASAJERO.apaterno, PASAJERO.amaterno, 
 	Asiento.fila, Asiento.letra) from Total
 where Total = (Select * from PASAJERO, Pasaje 
-where PASAJERO.idpasajero = (Select * from Pasaje, ASIENTO 
-where idavion in (Select * from Vuelo where idVuelo = '255'))
+				where Exists (Select * from Pasaje, ASIENTO 
+												where Pasaje.idasiento = ASIENTO.idasiento 
+												and Pasaje.idavion = ASIENTO.idavion
+												and ASIENTO.idavion in(Select * from Vuelo where idVuelo = '255'))
 
 	/*Pasaje.idpasajero*/)
 
@@ -91,7 +93,7 @@ pasajes pagos.*/
 
 Select distinct p.idpasajero, nombre, apaterno, amaterno from PASAJERO p, PAGO 
 where p.idpasajero = pago.idpasajero and
-	exists(Select count(PAGO.idpasajero) as cantidad, idpasajero 
+	exists(Select count(PAGO.idpasajero) as Cantidad, idpasajero 
 				from PAGO group by idpasajero)
 				/*Falta filtro de > 5*/
 
