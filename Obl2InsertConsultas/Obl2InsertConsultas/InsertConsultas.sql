@@ -31,16 +31,18 @@ Insert into usuario values ('p.ingold@outlook.com', '123456', '48684676')
 Insert into usuario values ('fnfoasf@outlook.com', '123456', '45769845')
 Insert into usuario values ('gensad@gamil.com', '123456', '35769845')
 
-Insert into RESERVA values ('01', '3000', '06-11-2018', 'Todo ok')
-Insert into RESERVA values ('02', '2800', '08-11-2018', 'Todo ok')
-Insert into RESERVA values ('03', '3300', '10-11-2018', 'Todo ok')
+insert into reserva(costo, observacion) values(3000, 'dudas')
+insert into reserva(costo, observacion) values(5000, 'todo ok')
+insert into reserva(costo, observacion) values(1500, 'todo ok')
+insert into reserva(costo, observacion) values(0, 'dudas')
 
-Insert into PAGO (idpago, idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('01', '01', '48684676', '3000', 'coso', '658866', '30')
-Insert into PAGO values ('02', '01', '48684676', '3000', 'coso', '658866', '30')
-Insert into PAGO values ('03', '01', '48684676', '3000', 'coso', '658866', '30')
-Insert into PAGO values ('04', '02', '48684676', '3000', 'coso', '658866', '30')
-Insert into PAGO values ('05', '02', '48684676', '3000', 'coso', '658866', '30')
-Insert into PAGO values ('06', '02', '48684676', '3000', 'coso', '658866', '30') /*No dejo*/
+Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('01', '48684676', '3000', 'coso', '658866', '30')
+Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('01', '48684676', '3000', 'coso', '658866', '30')
+Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('01', '48684676', '3000', 'coso', '658866', '30')
+Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('02', '48684676', '3000', 'coso', '658866', '30')
+Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('02', '48684676', '3000', 'coso', '658866', '30')
+Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('02', '48684676', '3000', 'coso', '658866', '30')
+
 
 Insert into TARIFA values ('01', 'A', '30', '2500', '01-01-2020')
 Insert into TARIFA values ('02', 'B', '20', '2500', '01-01-2020')
@@ -73,7 +75,7 @@ where Tabla2 = Select * from ASIENTO where idavion in (Select * from Vuelo where
 
 
 
-/*3)Listar todos los datos de los pasajeros para los cuales haya registrados en el sistema m·s de 5
+/*3)Listar todos los datos de los pasajeros para los cuales haya registrados en el sistema m√°s de 5
 pasajes pagos.*/
 
 
@@ -93,8 +95,8 @@ FROM (SELECT DISTINCT Country FROM Customers)*/
 
 
 
-/*2)Listar todos los datos de los aviones con m·s de 20 asientos en clase ìAî que no tengan asignado
-ning˙n destino que parta el dÌa de maÒana.*/
+/*2)Listar todos los datos de los aviones con m√°s de 20 asientos en clase ‚ÄúA‚Äù que no tengan asignado
+ning√∫n destino que parta el d√≠a de ma√±ana.*/
 
 
 Select * from Avion 
