@@ -5,11 +5,20 @@ Insert into Aerolinea values (4, '564897413', 'Latam');
 Insert into Aerolinea values (5, '897465132', 'Azul');
 
 Insert into Avion values ('A320', '2', 'EADS', 'Airbus', '130')
-Insert into Avion values ('A330', '1', 'EADS', 'Airbus', '130')
-Insert into Avion values ('A340', '3', 'EADS', 'Airbus', '130')
-Insert into Avion values ('A737', '4', 'EADS', 'Boing', '200')
-Insert into Avion values ('A767', '5', 'EADS', 'Boing', '200')
-Insert into Avion values ('A787', '4', 'EADS', 'Boing', '250')
+Insert into Avion values ('A330', '1', 'EADS', 'Airbus', '200')
+Insert into Avion values ('A340', '3', 'EADS', 'Airbus', '250')
+Insert into Avion values ('B737', '4', 'EADS', 'Boeing', '130')
+Insert into Avion values ('B767', '5', 'EADS', 'Boeing', '200')
+Insert into Avion values ('B787', '4', 'EADS', 'Boeing', '250')
+
+insert into asiento values (1, 'a', 1, 'premium', 'A320')
+insert into asiento values (2, 'b', 1, 'premium', 'A320')
+insert into asiento values (3, 'e', 1, 'premium', 'A320')
+insert into asiento values (4, 'f', 1, 'premium', 'A320')
+insert into asiento values (5, 'a', 9, 'economica', 'B737')
+insert into asiento values (6, 'b', 9, 'economica', 'B737')
+insert into asiento values (7, 'f', 35, 'economica', 'B767')
+insert into asiento values (8, 'e', 39, 'economica', 'B767')
 
 Insert into Pais values ('URY', 'Uruguay')
 Insert into Pais values ('ARG', 'Argentina')
