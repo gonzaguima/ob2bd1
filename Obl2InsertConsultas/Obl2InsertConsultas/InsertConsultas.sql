@@ -95,22 +95,13 @@ where Tabla2 = Select * from ASIENTO where idavion in (Select * from Vuelo where
 
 /*3)Listar todos los datos de los pasajeros para los cuales haya registrados en el sistema más de 5
 pasajes pagos.*/
+/***************ESTE ANDA **************************/
 
-
-
-Select distinct p.idpasajero, nombre, apaterno, amaterno from PASAJERO p, PAGO 
-where p.idpasajero = pago.idpasajero and
-	exists(Select count(PAGO.idpasajero) as Cantidad, idpasajero 
-				from PAGO group by idpasajero)
-				/*Falta filtro de > 5*/
-
-
-Select * from pasajero order by idpasajero
-/*SELECT Count(*) AS DistinctCountries
-FROM (SELECT DISTINCT Country FROM Customers)*/
-
-
-
+select pasajero.*
+from pasajero, pago
+where pasajero.idpasajero = pago.idpasajero
+group by pasajero.idpasajero, pasajero.nombre, pasajero.apaterno, pasajero.amaterno, pasajero.tipo_documento, pasajero.num_documento, pasajero.fecha_nacimiento, pasajero.idpais, pasajero.telefono, pasajero.email
+having count(distinct pago.idpago) >= 5
 
 
 /*2)Listar todos los datos de los aviones con más de 20 asientos en clase “A” que no tengan asignado
@@ -143,22 +134,4 @@ from pasajero, pasaje
 where pasajero.idpasajero = pasaje.idpasajero
 group by PASAJERO.nombre
 order by Cantidad desc								  
-								  
-/******************************************************/								  
-								  
-Select nombre from PASAJERO
-where exists(Select count(idpasajero) as cantidad, idpasajero 
-			from Pasaje group by idpasajero)
 
-select nombre 
-from PASAJERO p, Pasaje pa
-where p.idpasajero = pa.idpasajero and
-exists(Select pa.idpasajero, MAX(cantidad) 
-		from (Select idpasajero, count(idpasajero) as cantidad  
-				from Pasaje group by idpasajero) group by idpasajero)
-
-
-/*where Tabla3 = (Select count(distinct idpasajero) as cantPasajes from Pasaje)
-(cont) (Select count (distinct idpasajero) as cont from Pasaje)
-
-*/
