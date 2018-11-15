@@ -15,12 +15,85 @@ insert into asiento values (1, 'a', 1, 'A', 'A320')
 insert into asiento values (2, 'b', 1, 'A', 'A320')
 insert into asiento values (3, 'e', 1, 'A', 'A320')
 insert into asiento values (4, 'f', 1, 'A', 'A320')
+insert into asiento values (5, 'a', 9, 'B', 'A320')
+insert into asiento values (6, 'b', 9, 'B', 'A320')
+insert into asiento values (7, 'f', 35, 'B', 'A320')
+insert into asiento values (8, 'e', 39, 'B', 'A320')
+insert into asiento values (1, 'a', 1, 'A', 'A330')
+insert into asiento values (2, 'b', 1, 'A', 'A330')
+insert into asiento values (3, 'e', 1, 'A', 'A330')
+insert into asiento values (4, 'f', 1, 'A', 'A330')
+insert into asiento values (5, 'a', 9, 'B', 'A330')
+insert into asiento values (6, 'b', 9, 'B', 'A330')
+insert into asiento values (7, 'f', 35, 'B', 'A330')
+insert into asiento values (8, 'e', 39, 'B', 'A330')
+insert into asiento values (1, 'a', 1, 'A', 'A340')
+insert into asiento values (2, 'b', 1, 'A', 'A340')
+insert into asiento values (3, 'e', 1, 'A', 'A340')
+insert into asiento values (4, 'f', 1, 'A', 'A340')
+insert into asiento values (5, 'a', 9, 'B', 'A340')
+insert into asiento values (6, 'b', 9, 'B', 'A340')
+insert into asiento values (7, 'f', 35, 'B', 'A340')
+insert into asiento values (8, 'e', 39, 'B', 'A340')
+insert into asiento values (9, 'a', 1, 'A', 'A340')
+insert into asiento values (10, 'b', 1, 'A', 'A340')
+insert into asiento values (11, 'e', 1, 'A', 'A340')
+insert into asiento values (12, 'f', 1, 'A', 'A340')
+insert into asiento values (13, 'a', 1, 'A', 'A340')
+insert into asiento values (14, 'b', 1, 'A', 'A340')
+insert into asiento values (15, 'e', 1, 'A', 'A340')
+insert into asiento values (16, 'f', 1, 'A', 'A340')
+insert into asiento values (17, 'a', 1, 'A', 'A340')
+insert into asiento values (18, 'b', 1, 'A', 'A340')
+insert into asiento values (19, 'e', 1, 'A', 'A340')
+insert into asiento values (20, 'f', 1, 'A', 'A340')
+insert into asiento values (1, 'a', 1, 'A', 'B737')
+insert into asiento values (2, 'b', 1, 'A', 'B737')
+insert into asiento values (3, 'e', 1, 'A', 'B737')
+insert into asiento values (4, 'f', 1, 'A', 'B737')
 insert into asiento values (5, 'a', 9, 'B', 'B737')
 insert into asiento values (6, 'b', 9, 'B', 'B737')
+insert into asiento values (7, 'f', 35, 'B', 'B737')
+insert into asiento values (8, 'e', 39, 'B', 'B737')
+insert into asiento values (1, 'a', 1, 'A', 'B767')
+insert into asiento values (2, 'b', 1, 'A', 'B767')
+insert into asiento values (3, 'e', 1, 'A', 'B767')
+insert into asiento values (4, 'f', 1, 'A', 'B767')
+insert into asiento values (5, 'a', 9, 'B', 'B767')
+insert into asiento values (6, 'b', 9, 'B', 'B767')
 insert into asiento values (7, 'f', 35, 'B', 'B767')
 insert into asiento values (8, 'e', 39, 'B', 'B767')
-
-INSERT [ASIENTO] ([idasiento], [letra], [fila], [clase], [idavion]) VALUES (50, N'B ', 50, N'Ejecutiva', N'BA690')
+insert into asiento values (1, 'a', 1, 'A', 'B787')
+insert into asiento values (2, 'b', 1, 'A', 'B787')
+insert into asiento values (3, 'e', 1, 'A', 'B787')
+insert into asiento values (4, 'f', 1, 'A', 'B787')
+insert into asiento values (5, 'a', 9, 'B', 'B787')
+insert into asiento values (6, 'b', 9, 'B', 'B787')
+insert into asiento values (7, 'f', 35, 'B', 'B787')
+insert into asiento values (8, 'e', 39, 'B', 'B787')
+insert into asiento values (9, 'a', 1, 'A', 'B787')
+insert into asiento values (10, 'b', 1, 'A', 'B787')
+insert into asiento values (11, 'e', 1, 'A', 'B787')
+insert into asiento values (12, 'f', 1, 'A', 'B787')
+insert into asiento values (13, 'a', 1, 'A', 'B787')
+insert into asiento values (14, 'b', 1, 'A', 'B787')
+insert into asiento values (15, 'e', 1, 'A', 'B787')
+insert into asiento values (16, 'f', 1, 'A', 'B787')
+insert into asiento values (17, 'a', 1, 'A', 'B787')
+insert into asiento values (18, 'b', 1, 'A', 'B787')
+insert into asiento values (19, 'e', 1, 'A', 'B787')
+insert into asiento values (20, 'f', 1, 'A', 'B787')
+insert into asiento values (30, 'b', 1, 'A', 'B787')
+insert into asiento values (31, 'e', 1, 'A', 'B787')
+insert into asiento values (32, 'f', 1, 'A', 'B787')
+insert into asiento values (33, 'a', 1, 'A', 'B787')
+insert into asiento values (34, 'b', 1, 'A', 'B787')
+insert into asiento values (35, 'e', 1, 'A', 'B787')
+insert into asiento values (36, 'f', 1, 'A', 'B787')
+insert into asiento values (37, 'a', 1, 'A', 'B787')
+insert into asiento values (38, 'b', 1, 'A', 'B787')
+insert into asiento values (39, 'e', 1, 'A', 'B787')
+insert into asiento values (30, 'f', 1, 'A', 'B787')
 
 Insert into Pais values ('URY', 'Uruguay')
 Insert into Pais values ('ARG', 'Argentina')
@@ -34,9 +107,13 @@ Insert into Aeropuerto values ('GRU', 'Aeropuerto de Sao Paulo', 'BRA');
 Insert into PASAJERO values ('48684676', 'Pablo', 'Ingold', 'Sosa', 'CI', 
 '48684676', '09-05-1997', 'UY', '094992993', 'p.ingold@outlook.com');
 Insert into PASAJERO values ('45769845', 'Marcos', 'Julius', 'Mont', 'CI', 
-'45769845', '09-05-1991', 'URY', '094556556', 'fnfoasf@outlook.com');
+'45769845', '09-05-1991', 'UY', '094556556', 'fnfoasf@outlook.com');
 Insert into PASAJERO values ('35769845', 'Julio', 'Alberto', 'Cuadrados', 'CI', 
-'35769845', '07-06-1993', 'URY', '094564720', 'gensad@gmail.com');
+'35769845', '07-06-1993', 'UY', '094564720', 'gensad@gmail.com');
+Insert into PASAJERO values ('45769845', 'Robert', 'Luzu', 'Redon', 'CI', 
+'35769845', '07-01-1993', 'UY', '094564545', 'daff@gmail.com');
+Insert into PASAJERO values ('5769845', 'Richard', 'Girds', 'Falo', 'CI', 
+'5769845', '07-01-1979', 'UY', '091558855', 'soyuruguayo@gmail.com');
 
 Insert into usuario values ('p.ingold@outlook.com', '123456', '48684676')
 Insert into usuario values ('fnfoasf@outlook.com', '123456', '45769845')
@@ -47,27 +124,29 @@ insert into reserva(costo, observacion) values(5000, 'todo ok')
 insert into reserva(costo, observacion) values(1500, 'todo ok')
 insert into reserva(costo, observacion) values(0, 'dudas')
 
-Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('01', '48684676', '3000', 'coso', '658866', '30')
-Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('01', '48684676', '3000', 'coso', '658866', '30')
-Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('01', '48684676', '3000', 'coso', '658866', '30')
-Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('02', '48684676', '3000', 'coso', '658866', '30')
-Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('02', '48684676', '3000', 'coso', '658866', '30')
-Insert into PAGO (idreserva, idpasajero, monto, tipo_comprobante, num_comprobante, impuesto) values ('02', '48684676', '3000', 'coso', '658866', '30')
-
-
 Insert into TARIFA values ('01', 'A', '30', '2500', '01-01-2020')
 Insert into TARIFA values ('02', 'B', '20', '2500', '01-01-2020')
 Insert into TARIFA values ('03', 'C', '10', '2500', '01-01-2020')
 
-SET IDENTITY_INSERT [Pasaje] ON
-INSERT [Pasaje] ([idPasaje], [idreserva], [idpasajero], [idasiento], [idtarifa], [idavion]) VALUES (59, 42, '48684676', 11, 1253, N'US107')
-INSERT [Pasaje] ([idPasaje], [idreserva], [idpasajero], [idasiento], [idtarifa], [idavion]) VALUES (59, 42, '', 11, 1253, N'US107')
-INSERT [Pasaje] ([idPasaje], [idreserva], [idpasajero], [idasiento], [idtarifa], [idavion]) VALUES (59, 42, N'VAFFE   ', 11, 1253, N'US107')
-INSERT [Pasaje] ([idPasaje], [idreserva], [idpasajero], [idasiento], [idtarifa], [idavion]) VALUES (59, 42, N'VAFFE   ', 11, 1253, N'US107')
+INSERT Pasaje VALUES (1, 48684676, 32, 01, 'B787')
+INSERT Pasaje VALUES (2, 48684676, 32, 01, 'B787')
+INSERT Pasaje VALUES (3, 48684676, 32, 01, 'B787')
+INSERT Pasaje VALUES (4, 48684676, 32, 01, 'B787')
+INSERT Pasaje VALUES (5, 48684676, 32, 01, 'B787')
+INSERT Pasaje VALUES (6, '45769845', 32, 01, 'B787')
+INSERT Pasaje VALUES (7, '45769845', 32, 01, 'B787')
+INSERT Pasaje VALUES (8, '45769845', 32, 01, 'B787')
+INSERT Pasaje VALUES (9, '45769845', 32, 01, 'B787')
+INSERT Pasaje VALUES (10, '45769845', 34, 01, 'B787')
+INSERT Pasaje VALUES (6, '45769845', 32, 01, 'B787')
+INSERT Pasaje VALUES (7, '45769845', 32, 01, 'B787')
+INSERT Pasaje VALUES (8, '45769845', 32, 01, 'B787')
+INSERT Pasaje VALUES (9, '45769845', 32, 01, 'B787')
+INSERT Pasaje VALUES (10, '45769845', 32, 01, 'B787')
 
 
 
-
+select * from PASAJERO
 
 /*5. Listar todos los Destinos y cantidad de pasajes comprados durante el mes de Setiembre de este año
 para c/u de los destinos del pasajero cuyo correo es soyuruguayo@gmail.com. La lista debe estar
@@ -116,7 +195,7 @@ Select * from Vuelo, Asiento
 where Vuelo.idavion = Asiento.idavion and vuelo.idVuelo = 255
 
 
-
+select * from pasaje where idpasajero = 'ERNSH   '
 
 
 
@@ -142,7 +221,7 @@ ningún destino que parta el día de mañana.*/
 
 Select distinct * from Avion a
 where idavion in (Select idavion from ASIENTO 
-							where clase = 'Ejecutiva' group by idavion having count(idavion) > 8)
+							where clase = 'Ejecutiva' group by idavion having count(idavion) > 20)
 	and a.idavion in (Select idavion from Vuelo 
 							where FechaHoraSalida = (GETDATE() + 1))
 
