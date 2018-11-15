@@ -32,7 +32,7 @@ Insert into Aeropuerto values ('EZE', 'Aeropuerto de Ezeiza', 'ARG');
 Insert into Aeropuerto values ('GRU', 'Aeropuerto de Sao Paulo', 'BRA');
 
 Insert into PASAJERO values ('48684676', 'Pablo', 'Ingold', 'Sosa', 'CI', 
-'48684676', '09-05-1997', 'URY', '094992993', 'p.ingold@outlook.com');
+'48684676', '09-05-1997', 'UY', '094992993', 'p.ingold@outlook.com');
 Insert into PASAJERO values ('45769845', 'Marcos', 'Julius', 'Mont', 'CI', 
 '45769845', '09-05-1991', 'URY', '094556556', 'fnfoasf@outlook.com');
 Insert into PASAJERO values ('35769845', 'Julio', 'Alberto', 'Cuadrados', 'CI', 
@@ -59,6 +59,11 @@ Insert into TARIFA values ('01', 'A', '30', '2500', '01-01-2020')
 Insert into TARIFA values ('02', 'B', '20', '2500', '01-01-2020')
 Insert into TARIFA values ('03', 'C', '10', '2500', '01-01-2020')
 
+SET IDENTITY_INSERT [Pasaje] ON
+INSERT [Pasaje] ([idPasaje], [idreserva], [idpasajero], [idasiento], [idtarifa], [idavion]) VALUES (59, 42, '48684676', 11, 1253, N'US107')
+INSERT [Pasaje] ([idPasaje], [idreserva], [idpasajero], [idasiento], [idtarifa], [idavion]) VALUES (59, 42, '', 11, 1253, N'US107')
+INSERT [Pasaje] ([idPasaje], [idreserva], [idpasajero], [idasiento], [idtarifa], [idavion]) VALUES (59, 42, N'VAFFE   ', 11, 1253, N'US107')
+INSERT [Pasaje] ([idPasaje], [idreserva], [idpasajero], [idasiento], [idtarifa], [idavion]) VALUES (59, 42, N'VAFFE   ', 11, 1253, N'US107')
 
 
 
@@ -97,12 +102,25 @@ comprados para el destino cuyo IdVuelo es 255*/
 
 select distinct pasajero.idpasajero, pasajero.nombre, pasajero.apaterno, pasajero.apaterno, asiento.idasiento, asiento.fila, vuelo.idvuelo
 	from pasajero, asiento, vuelo, Pasaje
-	where vuelo.idvuelo = 255 and
-	pasajero.idpasajero = pasaje.idpasajero and
-	pasaje.idavion = asiento.idavion
+	where vuelo.idavion = ASIENTO.idavion and
+	      ASIENTO.idasiento = Pasaje.idasiento and
+		  Pasaje.idpasajero = PASAJERO.idpasajero and
+		  Vuelo.idVuelo = 255
 	group by pasajero.idpasajero, pasajero.nombre, pasajero.apaterno, pasajero.apaterno, asiento.idasiento, asiento.fila, vuelo.idvuelo
 
-	
+
+
+
+
+Select * from Vuelo, Asiento
+where Vuelo.idavion = Asiento.idavion and vuelo.idVuelo = 255
+
+
+
+
+
+
+
 
 
 
@@ -148,5 +166,17 @@ select top 1 pasajero.nombre as Nombre,
 from pasajero, pasaje
 where pasajero.idpasajero = pasaje.idpasajero
 group by PASAJERO.nombre
-order by Cantidad desc								  
+order by Cantidad desc							  
+
+
+Select Pasajero.nombre, Contador.Cantidad as Cantidad from Pasajero, (Select p.idpasajero, count(p.idpasajero) as Cantidad 
+															from Pasaje p group by idpasajero) as Contador
+where pasajero.idpasajero = Contador.idpasajero 
+group by PASAJERO.nombre, Contador.Cantidad having Contador.Cantidad = (Select top 1 Contador.Cantidad from (Select p.idpasajero, count(p.idpasajero) as Cantidad 
+																						from Pasaje p group by idpasajero) as Contador)
+
+
+
+
+order by cantidad desc
 
