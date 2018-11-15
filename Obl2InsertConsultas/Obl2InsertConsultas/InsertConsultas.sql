@@ -105,15 +105,15 @@ Insert into Aeropuerto values ('EZE', 'Aeropuerto de Ezeiza', 'ARG');
 Insert into Aeropuerto values ('GRU', 'Aeropuerto de Sao Paulo', 'BRA');
 
 Insert into PASAJERO values ('48684676', 'Pablo', 'Ingold', 'Sosa', 'CI', 
-'48684676', '09-05-1997', 'UY', '094992993', 'p.ingold@outlook.com');
+'48684676', '09-05-1997', 'URY', '094992993', 'p.ingold@outlook.com');
 Insert into PASAJERO values ('45769845', 'Marcos', 'Julius', 'Mont', 'CI', 
-'45769845', '09-05-1991', 'UY', '094556556', 'fnfoasf@outlook.com');
+'45769845', '09-05-1991', 'URY', '094556556', 'fnfoasf@outlook.com');
 Insert into PASAJERO values ('35769845', 'Julio', 'Alberto', 'Cuadrados', 'CI', 
-'35769845', '07-06-1993', 'UY', '094564720', 'gensad@gmail.com');
-Insert into PASAJERO values ('45769845', 'Robert', 'Luzu', 'Redon', 'CI', 
-'35769845', '07-01-1993', 'UY', '094564545', 'daff@gmail.com');
+'35769845', '07-06-1993', 'URY', '094564720', 'gensad@gmail.com');
+Insert into PASAJERO values ('25769845', 'Robert', 'Luzu', 'Redon', 'CI', 
+'35769845', '07-01-1993', 'URY', '094564545', 'daff@gmail.com');
 Insert into PASAJERO values ('5769845', 'Richard', 'Girds', 'Falo', 'CI', 
-'5769845', '07-01-1979', 'UY', '091558855', 'soyuruguayo@gmail.com');
+'5769845', '07-01-1979', 'URY', '091558855', 'soyuruguayo@gmail.com');
 
 Insert into usuario values ('p.ingold@outlook.com', '123456', '48684676')
 Insert into usuario values ('fnfoasf@outlook.com', '123456', '45769845')
@@ -128,22 +128,35 @@ Insert into TARIFA values ('01', 'A', '30', '2500', '01-01-2020')
 Insert into TARIFA values ('02', 'B', '20', '2500', '01-01-2020')
 Insert into TARIFA values ('03', 'C', '10', '2500', '01-01-2020')
 
-INSERT Pasaje VALUES (1, 48684676, 32, 01, 'B787')
-INSERT Pasaje VALUES (2, 48684676, 32, 01, 'B787')
-INSERT Pasaje VALUES (3, 48684676, 32, 01, 'B787')
-INSERT Pasaje VALUES (4, 48684676, 32, 01, 'B787')
-INSERT Pasaje VALUES (5, 48684676, 32, 01, 'B787')
-INSERT Pasaje VALUES (6, '45769845', 32, 01, 'B787')
-INSERT Pasaje VALUES (7, '45769845', 32, 01, 'B787')
-INSERT Pasaje VALUES (8, '45769845', 32, 01, 'B787')
-INSERT Pasaje VALUES (9, '45769845', 32, 01, 'B787')
-INSERT Pasaje VALUES (10, '45769845', 34, 01, 'B787')
-INSERT Pasaje VALUES (6, '45769845', 32, 01, 'B787')
-INSERT Pasaje VALUES (7, '45769845', 32, 01, 'B787')
-INSERT Pasaje VALUES (8, '45769845', 32, 01, 'B787')
-INSERT Pasaje VALUES (9, '45769845', 32, 01, 'B787')
-INSERT Pasaje VALUES (10, '45769845', 32, 01, 'B787')
+INSERT Pasaje ([idreserva], [idpasajero], [idasiento], [idtarifa], [idavion]) VALUES (1, 48684676, 11, 01, 'B787')
+INSERT Pasaje VALUES (2, 48684676, 12, 02, 'B787')
+INSERT Pasaje VALUES (3, 48684676, 13, 01, 'B787')
+INSERT Pasaje VALUES (4, 48684676, 14, 01, 'B787')
+INSERT Pasaje VALUES (5, 48684676, 15, 01, 'B787')
+INSERT Pasaje VALUES (1, '45769845', 16, 01, 'B787')
+INSERT Pasaje VALUES (7, '45769845', 17, 01, 'B787')
+INSERT Pasaje VALUES (8, '45769845', 18, 01, 'B787')
+INSERT Pasaje VALUES (9, '45769845', 19, 01, 'B787')
+INSERT Pasaje VALUES (4, '45769845', 20, 01, 'B787')
+INSERT Pasaje VALUES (6, '45769845', 30, 01, 'B787')
+INSERT Pasaje VALUES (7, '45769845', 31, 01, 'B787')
+INSERT Pasaje VALUES (2, '45769845', 32, 01, 'B787')
+INSERT Pasaje VALUES (7, '45769845', 33, 01, 'B787')
+INSERT Pasaje VALUES (2, '45769845', 34, 01, 'B787')
+INSERT Pasaje VALUES (2, '5769845', 35, 03, 'B787')
+INSERT Pasaje VALUES (2, '5769845', 35, 03, 'B787')
 
+Insert Vuelo Values ('MVD', 'EZE', 'B787', CAST(N'2018-11-15T10:48:02.167' AS DateTime), CAST(N'2018-11-16T10:48:02.167' AS DateTime))
+Insert Vuelo Values ('GRU', 'EZE', 'B787', CAST(N'2018-10-15T10:48:02.167' AS DateTime), CAST(N'2018-10-16T10:48:02.167' AS DateTime))
+Insert Vuelo Values ('EZE', 'GRU', 'B787', CAST(N'2018-11-05T10:48:02.167' AS DateTime), CAST(N'2018-11-06T10:48:02.167' AS DateTime))
+Insert Vuelo Values ('MVD', 'GRU', 'B787', CAST(N'2018-11-15T10:48:02.167' AS DateTime), CAST(N'2018-11-16T10:48:02.167' AS DateTime))
+Insert Vuelo Values ('GRU', 'MVD', 'B787', CAST(N'2018-11-15T10:48:02.167' AS DateTime), CAST(N'2018-11-16T10:48:02.167' AS DateTime))
+Insert Vuelo Values ('GRU', 'MVD', 'B787', CAST(N'2018-11-15T10:48:02.167' AS DateTime), CAST(N'2018-11-16T10:48:02.167' AS DateTime))
+Insert Vuelo Values ('MVD', 'EZE', 'B787', CAST(N'2018-11-15T10:48:02.167' AS DateTime), CAST(N'2018-11-16T10:48:02.167' AS DateTime))
+Insert Vuelo Values ('MVD', 'EZE', 'B787', CAST(N'2018-11-15T10:48:02.167' AS DateTime), CAST(N'2018-11-16T10:48:02.167' AS DateTime))
+Insert Vuelo Values ('MVD', 'EZE', 'B787', CAST(N'2018-11-15T10:48:02.167' AS DateTime), CAST(N'2018-11-16T10:48:02.167' AS DateTime))
+Insert Vuelo Values ('MVD', 'EZE', 'B787', CAST(N'2018-09-15T10:48:02.167' AS DateTime), CAST(N'2018-09-16T10:48:02.167' AS DateTime))
+Insert Vuelo Values ('GRU', 'MVD', 'B787', CAST(N'2018-09-15T10:48:02.167' AS DateTime), CAST(N'2018-09-16T10:48:02.167' AS DateTime))
 
 
 select * from PASAJERO
@@ -160,6 +173,17 @@ Select Todos.idpais, count(Distinct Todos.nombre) as cant from PASAJERO p, (Sele
 									where Pasaje.idavion = Destinos.idavion) as Todos
 	where Todos.idpasajero = p.idpasajero and p.email = 'soyuruguayo@gmail.com' GROUP BY Todos.nombre, Todos.idpais
 	
+
+
+Select Todos.idpais, count(Distinct Todos.nombre) as cant from PASAJERO p, (Select Pasaje.idPasaje, Pasaje.idpasajero, Destinos.nombre, Destinos.idpais
+										from Pasaje, (Select Aeropuerto.nombre, Aeropuerto.idpais, Vuelo.idavion from Vuelo, Aeropuerto
+														where Aeropuerto.IdAeropuerto = Vuelo.idAeropuertoDestino
+														and Vuelo.FechaHoraSalida between '2018-09-01' and '2018-09-30') as Destinos
+									where Pasaje.idavion = Destinos.idavion) as Todos
+	where Todos.idpasajero = p.idpasajero and p.email = 'soyuruguayo@gmail.com' GROUP BY Todos.nombre, Todos.idpais
+
+
+
 
 
 Select Todos.nombre, Todos.idpais, count(Distinct Todos.nombre) as cant from PASAJERO p, (Select Pasaje.idPasaje, Pasaje.idpasajero, Destinos.nombre, Destinos.idpais 
