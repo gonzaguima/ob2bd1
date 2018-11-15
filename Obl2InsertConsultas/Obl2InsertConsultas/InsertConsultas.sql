@@ -20,6 +20,8 @@ insert into asiento values (6, 'b', 9, 'B', 'B737')
 insert into asiento values (7, 'f', 35, 'B', 'B767')
 insert into asiento values (8, 'e', 39, 'B', 'B767')
 
+INSERT [ASIENTO] ([idasiento], [letra], [fila], [clase], [idavion]) VALUES (50, N'B ', 50, N'Ejecutiva', N'BA690')
+
 Insert into Pais values ('URY', 'Uruguay')
 Insert into Pais values ('ARG', 'Argentina')
 Insert into Pais values ('BRA', 'Brasil')
@@ -67,7 +69,7 @@ para c/u de los destinos del pasajero cuyo correo es soyuruguayo@gmail.com. La l
 ordenada por destino ascendente.*/
 
 /*******************Este anda*************/
-Select Todos.nombre, Todos.idpais, count(Distinct Todos.nombre) as cant from PASAJERO p, (Select Pasaje.idPasaje, Pasaje.idpasajero, Destinos.nombre, Destinos.idpais 
+Select Todos.idpais, count(Distinct Todos.nombre) as cant from PASAJERO p, (Select Pasaje.idPasaje, Pasaje.idpasajero, Destinos.nombre, Destinos.idpais 
 										from Pasaje, (Select Aeropuerto.nombre, Aeropuerto.idpais, Vuelo.idavion from Vuelo, Aeropuerto
 															where Aeropuerto.IdAeropuerto = Vuelo.idAeropuertoDestino
 															and Vuelo.FechaHoraSalida between '2018-09-01' and '2018-09-30') as Destinos
@@ -97,14 +99,10 @@ select distinct pasajero.idpasajero, pasajero.nombre, pasajero.apaterno, pasajer
 	from pasajero, asiento, vuelo, Pasaje
 	where vuelo.idvuelo = 255 and
 	pasajero.idpasajero = pasaje.idpasajero and
-	pasaje.idavion = asiento.idavion and asiento.idavion = vuelo.idavion
+	pasaje.idavion = asiento.idavion
 	group by pasajero.idpasajero, pasajero.nombre, pasajero.apaterno, pasajero.apaterno, asiento.idasiento, asiento.fila, vuelo.idvuelo
 
-	/*Pasaje.idpasajero*/
-
-
-/*where Tabla1 = full outer join Pasaje.idpasaje = Tabla2.idpasaje
-where Tabla2 = Select * from ASIENTO where idavion in (Select * from Vuelo where idVuelo = '255')*/
+	
 
 
 
@@ -124,20 +122,22 @@ having count(distinct pago.idpago) >= 5
 ningún destino que parta el día de mañana.*/
 
 
-Select distinct * from Avion a, ASIENTO 
-where a.idavion = ASIENTO.idavion and
-ASIENTO.idavion in (Select count(idasiento) as cantidad, idavion from ASIENTO 
-						where asiento.idavion in(Select idavion, count(idavion) as cantAsiento from ASIENTO 
-													where clase = 'Ejecutiva' group by idavion) group by idavion)
-	and a.idavion not in (Select idavion from Vuelo 
-							where FechaHoraLlegada = (GETDATE() + 1))
+Select distinct * from Avion a
+where idavion in (Select idavion from ASIENTO 
+							where clase = 'Ejecutiva' group by idavion having count(idavion) > 8)
+	and a.idavion in (Select idavion from Vuelo 
+							where FechaHoraSalida = (GETDATE() + 1))
 
 
+SET IDENTITY_INSERT [Vuelo] ON 
+INSERT [Vuelo] ([idVuelo], [idAeropuertoOrigen], [idAeropuertoDestino], [idavion], [FechaHoraSalida], [FechaHoraLlegada]) 
+VALUES (603, N'HKG  ', N'ABA  ', N'AE113', CAST(N'2018-11-15T10:48:02.167' AS DateTime), CAST(N'2018-11-16T10:48:02.167' AS DateTime))
 
 
+select * from asiento where idavion = 'AE113'
 select * from pasaje order by idpasajero
 
-
+select * from asiento where idavion = 'AE113'
 
 
 
