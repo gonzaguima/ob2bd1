@@ -128,6 +128,24 @@ Insert into TARIFA values ('01', 'A', '30', '2500', '01-01-2020')
 Insert into TARIFA values ('02', 'B', '20', '2500', '01-01-2020')
 Insert into TARIFA values ('03', 'C', '10', '2500', '01-01-2020')
 
+INSERT PAGO VALUES (1, 48684676, 11, 01, 'B787')
+INSERT PAGO VALUES (2, 48684676, 12, 02, 'B787')
+INSERT PAGO VALUES (3, 48684676, 13, 01, 'B787')
+INSERT PAGO VALUES (4, 48684676, 14, 01, 'B787')
+INSERT PAGO VALUES (5, 48684676, 15, 01, 'B787')
+INSERT PAGO VALUES (1, '45769845', 16, 01, 'B787')
+INSERT PAGO VALUES (7, '45769845', 17, 01, 'B787')
+INSERT PAGO VALUES (8, '45769845', 18, 01, 'B787')
+INSERT PAGO VALUES (9, '45769845', 19, 01, 'B787')
+INSERT PAGO VALUES (4, '45769845', 20, 01, 'B787')
+INSERT PAGO VALUES (6, '45769845', 30, 01, 'B787')
+INSERT PAGO VALUES (7, '45769845', 31, 01, 'B787')
+INSERT PAGO VALUES (2, '45769845', 32, 01, 'B787')
+INSERT PAGO VALUES (7, '45769845', 33, 01, 'B787')
+INSERT PAGO VALUES (2, '45769845', 34, 01, 'B787')
+INSERT PAGO VALUES (2, '5769845', 35, 03, 'B787')
+INSERT PAGO VALUES (2, '5769845', 35, 03, 'B787')
+
 INSERT Pasaje ([idreserva], [idpasajero], [idasiento], [idtarifa], [idavion]) VALUES (1, 48684676, 11, 01, 'B787')
 INSERT Pasaje VALUES (2, 48684676, 12, 02, 'B787')
 INSERT Pasaje VALUES (3, 48684676, 13, 01, 'B787')
@@ -171,7 +189,7 @@ Select Todos.idpais, count(Distinct Todos.nombre) as cant from PASAJERO p, (Sele
 															where Aeropuerto.IdAeropuerto = Vuelo.idAeropuertoDestino
 															and Vuelo.FechaHoraSalida between '2018-09-01' and '2018-09-30') as Destinos
 									where Pasaje.idavion = Destinos.idavion) as Todos
-	where Todos.idpasajero = p.idpasajero and p.email = 'soyuruguayo@gmail.com' GROUP BY Todos.nombre, Todos.idpais
+	where Todos.idpasajero = p.idpasajero and p.email = 'soyuruguayo@gmail.com' GROUP BY Todos.idpais
 	
 
 
